@@ -2,4 +2,9 @@
 
 <h1>Home Page</h1>
 
+<ul>
+    <li><h3><a href=' {% url "posts:create_post" %} '>Create new post</a></h3></li>
+    <li><h3><a href=' {% url "posts:list_posts" %} '>List Of post</a></h3></li>
+</ul>
+
 {% endblock content %}
