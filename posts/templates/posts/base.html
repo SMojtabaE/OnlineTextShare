@@ -1,12 +1,11 @@
-{% comment %} {% load static %} {% endcomment %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Posts</title>
-    {% comment %} <link rel="stylesheet" href="{% static 'cars/style.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
 </head>
 <body>
-{% comment %} <a id='home-page' href=" {% url 'cars:home' %} ">Home Page</a> {% endcomment %}
 <a href=' {% url "posts:home" %} '>Home Page</a>
 {% block content %}
 

@@ -1,12 +1,16 @@
 {% extends "posts/base.html" %}
 {% block content %}
-
-<h1>Create New Post</h1>
-
-<form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type='submit' value='Post'>
-</form>
+<div class='form-main'>
+    <div class='form-container'>
+        <h1>Create New Post</h1>
+        <form class='form' method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class='post-btns'>
+                <input class='detailbtn' type='submit' value='Post'>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock content %}

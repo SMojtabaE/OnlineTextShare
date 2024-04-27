@@ -2,20 +2,22 @@
 
 
 {% block content %}
-
 <h1>Lost Of Post</h1>
+<main class='post-list-main'>
+    
 
-{% for post in posts_list %}
+    {% for post in posts_list %}
 
-    <div class='post-list'>
-        <article>
-            <h2>Title : <b><i>{{post.title}}</i></b></h2>
-            <h4>Time Posted : {{post.date_posted}}</h4>
-            <p>{{post.content}}</p>
-            </article>
-    </div>
-    <br>
-{% endfor %}
+        <div class='post'>
+            <article>
+                <h2>Title : <b><i>{{post.title}}</i></b></h2>
+                <h4>Time Posted : {{post.date_posted}}</h4>
+                <p>{{post.content|truncatewords:25}}</p>
+                <a href='/posts/post_detail/{{post.id}}'>More</a>
+                </article>
+        </div>
+        
+    {% endfor %}
 
-
+</main>
 {% endblock content %}
