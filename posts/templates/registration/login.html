@@ -1,0 +1,34 @@
+{% extends "posts/base.html" %}
+{% load static %}
+{% block content %}
+
+{% if form.errors %}
+    <p class="error">Your username or password was incorrect,try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+        <p class="error"> You dont have permission for this page</p>
+    {% else %}
+        <p class="error">Pease login to see this page</p>
+    {% endif %}
+{% endif %}
+
+<div class='form-main'>
+    <div class='form-container'>
+        <form class='form' method='POST' action="{% url 'login' %}">
+            {% csrf_token %}
+            {{form.username.label_tag}}
+            {{form.username}}
+            
+            {{form.password.label_tag}}
+            {{form.password}}
+
+            <input class='detailbtn' type='submit' value='login'>
+            <input type='hidden' name='next' value='{{next}}'>
+
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

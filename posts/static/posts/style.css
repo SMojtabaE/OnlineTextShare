@@ -6,6 +6,13 @@ body {
     background: linear-gradient(to bottom,transparent , #80bbe2);
 }
 
+.main-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    flex-direction: column;
+}
 .detailbtn {
     border: 1px solid #3498db;
     border-radius: 5px;
@@ -16,6 +23,7 @@ body {
     cursor: pointer;
     margin: 10px;
     transition: 0.8s;
+    text-decoration : none;
 }
 .deletebtn {
     border: 1px solid #db3434;
@@ -106,6 +114,13 @@ body {
 
 .form .errorlist li {
     list-style-type: none;
+}
+
+.error {
+    background-color: rgb(247, 180, 180);
+    color: red;
+    padding: 20px;
+    font-size: 20px;
 }
 
 /* width: 100%;

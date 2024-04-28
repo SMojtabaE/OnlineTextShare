@@ -1,0 +1,14 @@
+{% extends "posts/base.html" %}
+{% block content %}
+<div class='form-main'>
+    <div class='form-container'>
+        <h1>You have Logged out sucssusfully!!</h1>
+        <a href='{% url "login" %}' style='display: flex;
+        align-items: center;
+        justify-content: center; text-decoration : none; padding: 20px;
+        margin: 10px;
+        font-size: 30px;'><button class='detailbtn updatebtn'>Login Page</button></a>
+    </div>
+</div>
+
+{% endblock content %}
