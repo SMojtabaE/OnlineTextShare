@@ -6,6 +6,11 @@ body {
     background: linear-gradient(to bottom,transparent , #80bbe2);
 }
 
+.navbar a {
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #3498db;
+}
 .main-home {
     display: flex;
     align-items: center;
