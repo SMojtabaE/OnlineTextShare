@@ -1,3 +1,5 @@
+
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import TemplateView,CreateView,ListView,DetailView,UpdateView,DeleteView
 from .models import Post
@@ -12,14 +14,20 @@ class HomeView(TemplateView):
 
 class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > post_form.html
     model = Post
-    fields = ['title','content']
+    fields = ['title','content','is_publick']
 
     success_url = reverse_lazy('posts:home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class PostsListView(ListView):              # template = > post_list.html
     model = Post
 
     context_object_name = 'posts_list'
+    def get_queryset(self):
+        return Post.objects.filter(is_publick=True)
 
 class PostDetailview(DetailView):           # tempalte = > post_detail.html
     model = Post
@@ -28,7 +36,7 @@ class PostDetailview(DetailView):           # tempalte = > post_detail.html
 
 class PostUpdateView(LoginRequiredMixin,UpdateView):           # template = > post_form.html    build befor
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content','is_publick']
     success_url = reverse_lazy('posts:list_posts')
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):           # template = > post_confirm_delete.html
