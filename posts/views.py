@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 class HomeView(TemplateView):
-    template_name = 'posts/home.html'
+    template_name = 'posts/index.html'
 
 class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > post_form.html
     model = Post
@@ -22,7 +22,7 @@ class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > pos
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class PostsListView(ListView):              # template = > post_list.html
+class HomePostsListView(ListView):              # template = > post_list.html
     model = Post
 
     context_object_name = 'posts_list'
