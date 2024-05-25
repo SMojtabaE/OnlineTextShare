@@ -37,7 +37,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>blogger</title>
+      <title>Online Text Share</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -71,7 +71,7 @@
                        <div class="full">
                           <div class="center-desk">
                              <div class="logo">
-                                <a href="index.html"><img src="{% static 'posts/images/logo.png' %}" alt="#" /></a>
+                                <a href='{% url "posts:home" %}'><img src="{% static 'posts/images/logo.png' %}" alt="#" /></a>
                              </div>
                           </div>
                        </div>
@@ -84,7 +84,7 @@
                           <div class="collapse navbar-collapse" id="navbarsExample04">
                              <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                   <a class="nav-link" href="#"> Home  </a>
+                                   <a class="nav-link" href='{% url "posts:home" %}'> Home  </a>
                                 </li>
                                 <li class="nav-item">
                                    <a class="nav-link" href="#contact">About</a>
@@ -92,6 +92,21 @@
                                 <li class="nav-item">
                                    <a class="nav-link" href="#">Contact</a>
                                 </li>
+                                {% if user.is_authenticated %}
+                                   {% comment %} <a href=' {% url "logout" %} '>Logout from {{user.get_username}}</a> {% endcomment %}
+                                   <li class="nav-item">
+                                       <a class="nav-link" href=' {% url "logout" %} '>Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                       <a class="nav-link" href=' {% url "login" %} '>LogIn</a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href=' {% url "posts:signup" %} '>SignIn</a>
+                                    </li>
+                                   {% comment %} <a href=' {% url "login" %} '>LogIn</a>
+                                   <a href=' {% url "posts:signup" %} '>SignIn</a> {% endcomment %}
+                                {% endif %}
                              </ul>
                           </div>
                        </nav>

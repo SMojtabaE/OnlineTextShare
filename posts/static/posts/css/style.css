@@ -398,7 +398,7 @@ button {
 
 
 /** blog_main section **/
-.blog_main {margin-top: 85px;}
+.blog_main {margin-top: 85px; margin-bottom: 50px;}
 .blog_main .span {font-size: 17px; line-height: 20px; color: #2d2d2d;}
 .our_two_box {box-shadow: #ddd 0px 0px 10px 0px; margin-bottom: 90px;}
 .our_text_box {padding: 1px 30px 1px 1px;}
@@ -452,6 +452,7 @@ ul.like li img {padding: 0px 10px 0px 40px;}
     float: right;
     display: block;
     margin-top: 30px;
+    margin-bottom: 20px;
     width: 100%;
     max-width: 100px;
 }

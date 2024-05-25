@@ -8,16 +8,16 @@
                   <div class="row d_flex">
                      <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
                         <div class="text-bg">
-                           <h1>Blog<br> <span class="white1">Landing Page 2019</span></h1>
+                           <h1>Online<br> <span class="white1">Text Share</span></h1>
                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
-                           <a href="#">Read More</a>
+                           <a href=' {% url "posts:signup" %} '>Start Heare</a>
                         </div>
                      </div>
-                     <div class="col-xl-4 col-lg-4 col-md-4 col-12-3">
+                     {% comment %} <div class="col-xl-4 col-lg-4 col-md-4 col-12-3">
                         <div class="text-img">
                            <figure><img src="{% static 'posts/images/box_img.png' %}" alt="#"/></figure>
                         </div>
-                     </div>
+                     </div> {% endcomment %}
                   </div>
                </div>
             </section>
@@ -30,39 +30,12 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Our Blogs</h2>
-                     <span>It is a long established fact that a reader will be distracted by the readable content of a page </span>
+                     <h2>Public Posts</h2>
+                     <span>In this part,you can see the public post that people uploaded</span>
                   </div>
                </div>
             </div>
             <!-- fist section -->
-            {% comment %} <div class="row">
-               <div class="col-md-12">
-                  <div class="our_two_box">
-                     <div class="row d_flex post">
-                       
-                        {% comment %} <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                           <div class="our_img">
-                              <figure><img src="{% static 'myapp/images/our_img1.jpg' %}" alt="#"/></figure>
-                           </div>
-                        </div> {% endcomment %}
-                        {% comment %} <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                           <div class="our_text_box">
-                              <h3 class="awesome pa_wi">The biggest and most awesome Photo of  year</h3>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model </p>
-                              <div class="post_box padding_bottom1">
-                                 <h4 class="flot_left1">Post By : Blogger </h4>
-                                 <ul class="like">
-                                    <li><a href="#"><img src="{% static 'myapp/images/like.png' %}" alt="#"/>Like</a></li>
-                                     <li><a href="#"><img src="{% static 'myapp/images/comm.png' %}" alt="#"/>Comment</a></li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>  {% endcomment %}
 
             <!-- ############ -->
             <div class='card-container'>
@@ -82,85 +55,7 @@
                   
                {% endfor %}
             </div>
-            {% comment %} <div class='card-container'>
-               <div class='card'>
-                  <div class='card-content'>
-                     <h3>The biggest and most awesome Photo of  year</h3>
-                     <h4>time</h4>
-                     <h4>user</h4>
-                     <p>It is a long established fact that a reader will be distracted 
-                        by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less 
-                        normal distribution </p>
-                        <a href='' class='post-btn'>Read More</a>
-                  </div>
-               </div>
-
-               <div class='card'>
-                  <div class='card-content'>
-                     <h3>The 2 biggest and most awesome Photo of  year</h3>
-                     <h4>time</h4>
-                     <h4>user</h4>
-                     <p>It is a long established fact that a reader will be distracted 
-                        by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less 
-                        normal distribution of letters, as opposed to using 'Content 
-                        here, content here', making it look like readable English. 
-                        Many desktop publishing packages and web page editors now 
-                        use Lorem Ipsum as their default model</p>
-                        <a href='' class='post-btn'>Read More</a>
-                  </div>
-               </div>
-
-               <div class='card'>
-                  <div class='card-content'>
-                     <h3>The 3 biggest and most awesome Photo of  year</h3>
-                     <h4>time</h4>
-                     <h4>user</h4>
-                     <p>It is a long established fact that a reader will be distracted 
-                        by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less 
-                        normal distribution of letters, as opposed to using 'Content 
-                        here, content here', making it look like readable English. 
-                        Many desktop publishing packages and web page editors now 
-                        use Lorem Ipsum as their default model</p>
-                        <a href='' class='post-btn'>Read More</a>
-                  </div>
-               </div>
-
-               <div class='card'>
-                  <div class='card-content'>
-                     <h3>The 3 biggest and most awesome Photo of  year</h3>
-                     <h4>time</h4>
-                     <h4>user</h4>
-                     <p>It is a long established fact that a reader will be distracted 
-                        by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less 
-                        normal distribution of letters, as opposed to using 'Content 
-                        here, content here', making it look like readable English. 
-                        Many desktop publishing packages and web page editors now 
-                        use Lorem Ipsum as their default model</p>
-                        <a href='' class='post-btn'>Read More</a>
-                  </div>
-               </div>
-
-               <div class='card'>
-                  <div class='card-content'>
-                     <h3>The 3 biggest and most awesome Photo of  year</h3>
-                     <h4>time</h4>
-                     <h4>user</h4>
-                     <p>It is a long established fact that a reader will be distracted 
-                        by the readable content of a page when looking at its layout. 
-                        The point of using Lorem Ipsum is that it has a more-or-less 
-                        normal distribution of letters, as opposed to using 'Content 
-                        here, content here', making it look like readable English. 
-                        Many desktop publishing packages and web page editors now 
-                        use Lorem Ipsum as their default model</p>
-                        <a href='' class='post-btn'>Read More</a>
-                  </div>
-               </div>
-
-            </div> {% endcomment %}
+            
     <!-- end fist section -->
          </div>
       </div>
@@ -187,7 +82,10 @@
                   <div class="col-md-9">
                      <div class="Testimonial_box">
                         <h4>will smithe</h4>
-                        <p>Tof Lorem Ipsum, you need to be There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a pass
+                        <p>Tof Lorem Ipsum, you need to be There are many variations of 
+                              passages of Lorem Ipsum available, but the majority have suffered
+                                 alteration in some form, by injected humour, or randomised words 
+                                  which don't look even slightly believable. If you are going to use a pass
                         <br>
                         age of Lorem Ipsum, you need to be
                         </p>
