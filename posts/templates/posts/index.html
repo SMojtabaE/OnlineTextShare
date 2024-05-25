@@ -65,8 +65,24 @@
             </div>  {% endcomment %}
 
             <!-- ############ -->
-
             <div class='card-container'>
+               {% for post in posts_list %}
+                  
+                     <div class='card'>
+                        <div class='card-content'>
+                           <article>
+                              <h3>{{post.title}}</h3>
+                              <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                              <h4>Time Posted : {{post.date_posted}}</h4>
+                              <p>{{post.content|truncatewords:25}}</p>
+                              <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a>
+                           </article>
+                        </div>
+                     </div>
+                  
+               {% endfor %}
+            </div>
+            {% comment %} <div class='card-container'>
                <div class='card'>
                   <div class='card-content'>
                      <h3>The biggest and most awesome Photo of  year</h3>
@@ -144,7 +160,7 @@
                   </div>
                </div>
 
-            </div>
+            </div> {% endcomment %}
     <!-- end fist section -->
          </div>
       </div>

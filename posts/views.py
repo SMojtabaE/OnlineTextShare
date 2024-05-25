@@ -9,8 +9,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class HomeView(TemplateView):
-    template_name = 'posts/index.html'
+# class HomeView(TemplateView):
+#     template_name = 'posts/index.html'
+
+#     context_object_name = 'posts_list'
+#     def get_queryset(self):
+#         return Post.objects.filter(is_publick=True)
+    
 
 class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > post_form.html
     model = Post
@@ -22,8 +27,9 @@ class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > pos
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class HomePostsListView(ListView):              # template = > post_list.html
+class HomePostsListView(ListView):   #home page           # template = > index.html
     model = Post
+    template_name = 'posts/index.html'
 
     context_object_name = 'posts_list'
     def get_queryset(self):
