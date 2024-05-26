@@ -2,22 +2,69 @@
 
 
 {% block content %}
-
-    <main class='post-detail-main'>
-        <div class='post'>
-            <article>
-                <h2>Title : <b><i>{{post.title}}</i></b></h2>
-                <hr>
-                <h3>Writer : <b><i>{{post.user.username}}</i></b></h3>
-                <hr>
-                <h4>Time Posted : {{post.date_posted}}</h4>
-                <hr>
-                <p>{{post.content}}</p>
-                </article>
-                <div class='post-btns'>
-                    <a  href='/update_post/{{post.id}}'><button class='detailbtn updatebtn'>Update</button></a>
-                    <a  href='/delete_post/{{post.id}}'><button class='detailbtn deletebtn'>Delete</button></a>
-                </div>
-        </div>
-    </main>
+<section class="banner_main">
+    <div class="container">
+       <div class="row d_flex">
+          <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
+             <div class="text-bg">
+                <h1>Online<br> <span class="white1">Text Share</span></h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                <a href=' {% url "posts:signup" %} '>Start Heare</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+</div> 
+</header>
+<div class="blog_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2>Public Posts</h2>
+                <span>In this part,you can see the public post that people uploaded</span>
+             </div>
+          </div>
+       </div>
+        {% comment %} <main class='post-detail-main'>
+            <div class='post'>
+                <article>
+                    <h2>Title : <b><i>{{post.title}}</i></b></h2>
+                    <hr>
+                    <h3>Writer : <b><i>{{post.user.username}}</i></b></h3>
+                    <hr>
+                    <h4>Time Posted : {{post.date_posted}}</h4>
+                    <hr>
+                    <p>{{post.content}}</p>
+                    </article>
+                    <div class='post-btns'>
+                        <a  href='/update_post/{{post.id}}'><button class='detailbtn updatebtn'>Update</button></a>
+                        <a  href='/delete_post/{{post.id}}'><button class='detailbtn deletebtn'>Delete</button></a>
+                    </div>
+            </div>
+        </main> {% endcomment %}
+        <div class='card-container'>
+                  <div class='card-detail'>
+                     <div class='card-content'>
+                        <article>
+                           <h3>{{post.title}}</h3>
+                           <hr style="background:#046c58;">
+                           <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                           <hr style="background:#046c58;">
+                           <h4>Time Posted : {{post.date_posted}}</h4>
+                           <hr style="background:#046c58;">
+                           <p>{{post.content}}</p>
+                           
+                           {% comment %} <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a> {% endcomment %}
+                        </article>
+                        <div class='post-btns'>
+                            <a  href='/update_post/{{post.id}}'><button class='post-btn'>Update</button></a>
+                            <a  href='/delete_post/{{post.id}}'><button class='post-btn-delete'>Delete</button></a>
+                        </div>
+                     </div>
+                  </div>
+         </div>
+    </div>
+</div>
 {% endblock content %}
