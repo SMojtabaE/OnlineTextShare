@@ -42,11 +42,13 @@ class PostDetailview(DetailView):           # tempalte = > post_detail.html
 class PostUpdateView(LoginRequiredMixin,UpdateView):           # template = > post_form.html    build befor
     model = Post
     fields = ['title', 'content','is_publick']
-    success_url = reverse_lazy('posts:list_posts')
+    # success_url = reverse_lazy('posts:list_posts') 
+    success_url = reverse_lazy('posts:home')
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):           # template = > post_confirm_delete.html
     model = Post
-    success_url = reverse_lazy('posts:list_posts')
+    # success_url = reverse_lazy('posts:list_posts')
+    success_url = reverse_lazy('posts:home')
 
 
 class SignUpCreateView(CreateView):

@@ -43,13 +43,13 @@
                   
                      <div class='card'>
                         <div class='card-content'>
-                           <article>
+                           {% comment %} <article> {% endcomment %}
                               <h3>{{post.title}}</h3>
                               <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
                               <h4>Time Posted : {{post.date_posted}}</h4>
                               <p>{{post.content|truncatewords:25}}</p>
                               <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a>
-                           </article>
+                           {% comment %} </article> {% endcomment %}
                         </div>
                      </div>
                   
@@ -112,10 +112,15 @@
          <div class="container">
             <div class="row">
                <div class="col-md-12 ">
-                  <form class="main_form ">
+                  <form class="main_form " method='POST'>
+                     {% csrf_token %}
+
                      <div class="row">
                         <div class="col-md-12 ">
                            <input class="form_contril" placeholder="Name " type="text" name="Name ">
+                           {% for err in form.name.errors %}
+                              <small class='text-danger'>{{err}}</small>
+                           {% endfor %}
                         </div>
                         <div class="col-md-12">
                            <input class="form_contril" placeholder="Phone Number" type="text" name=" Phone Number">

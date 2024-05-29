@@ -502,6 +502,13 @@ ul.like li img {padding: 0px 10px 0px 40px;}
      border-radius: 26px;
 }
 
+.form-checkbox {
+     padding-left: 20px;
+}
+
+.form-checkbox-label {
+     color: #046c58;
+}
 /** secend section **/
 
 .position_box {position: absolute; bottom: 0; padding: 0px 20px 20px 20px;}
