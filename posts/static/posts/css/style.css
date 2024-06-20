@@ -502,6 +502,13 @@ ul.like li img {padding: 0px 10px 0px 40px;}
      border-radius: 26px;
 }
 
+.error {
+     background-color: rgb(247, 180, 180);
+     color: red;
+     padding: 20px;
+     font-size: 20px;
+ }
+
 .form-checkbox {
      padding-left: 20px;
 }

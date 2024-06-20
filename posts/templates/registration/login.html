@@ -4,6 +4,7 @@
 
 {% if form.errors %}
     <p class="error">Your username or password was incorrect,try again.</p>
+    
 {% endif %}
 
 {% if next %}
@@ -12,9 +13,71 @@
     {% else %}
         <p class="error">Pease login to see this page</p>
     {% endif %}
-{% endif %}
+{% endif %} 
+<section class="banner_main">
+    <div class="container">
+       <div class="row d_flex">
+          <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
+             <div class="text-bg">
+                <h1>Online<br> <span class="white1">Text Share</span></h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                <a href=' {% url "posts:signup" %} '>Start Here</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+</div> 
+</header>
+{% comment %} <div class="blog_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2>Public Posts</h2>
+                <span>In this part,you can see the public post that people uploaded</span>
+             </div>
+          </div>
+       </div> {% endcomment %}
+    <div id="contact" class="contact">   
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <form class="main_form " method='POST' method='POST' action="{% url 'login' %}">
+                        {% csrf_token %}
 
-<div class='form-main'>
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <input class="form_contril" placeholder="Username " type="text" name="username">
+                                
+                                {% for err in form.username.errors %}
+                                    <small class='text-danger'>{{err}}</small>
+                                {% endfor %}
+                                
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="form_contril" placeholder="Password " type="password" name="password">
+                                
+                                {% for err in form.password.errors %}
+                                    <small class='text-danger'>{{err}}</small>
+                                {% endfor %}
+                                
+                            </div>
+                            
+                            <div class="col-sm-12">
+                                <button class="send_btn">Login</button>
+                                <input type='hidden' name='next' value='{{next}}'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% comment %} <div class='form-main'>
     <div class='form-container'>
         <form class='form' method='POST' action="{% url 'login' %}">
             {% csrf_token %}
@@ -29,6 +92,6 @@
 
         </form>
     </div>
-</div>
+</div> {% endcomment %}
 
 {% endblock content %}
