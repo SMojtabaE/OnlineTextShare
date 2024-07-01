@@ -1,10 +1,11 @@
 
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import TemplateView,CreateView,ListView,DetailView,UpdateView,DeleteView
 from .models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin 
 
 # Create your views here.
 
@@ -33,6 +34,17 @@ class HomePostsListView(ListView):   #home page           # template = > index.h
     context_object_name = 'posts_list'
     def get_queryset(self):
         return Post.objects.filter(is_publick=True)
+    
+class UserPostListView(LoginRequiredMixin,ListView):
+    model=Post
+    template_name = 'posts/post_list.html'
+    context_object_name = 'posts_list'
+
+    def get_queryset(self):
+        if self.request.user.is_staff:           # check if superuser is logedtn, show all posts
+            return Post.objects.all()
+        
+        return Post.objects.filter(user=self.request.user)         # if regular user,only show the users posts
 
 class PostDetailview(DetailView):           # tempalte = > post_detail.html
     model = Post

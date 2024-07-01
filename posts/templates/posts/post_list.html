@@ -1,13 +1,10 @@
 {% extends "posts/base.html" %}
-
+{% load static %}
 
 {% block content %}
-<h1>Lost Of Post</h1>
+{% comment %} <h1>Lost Of Post</h1>
 <main class='post-list-main'>
-    
-
     {% for post in posts_list %}
-
         <div class='post'>
             <article>
                 <h2>Title : <b><i>{{post.title}}</i></b></h2>
@@ -16,9 +13,67 @@
                 <p>{{post.content|truncatewords:25}}</p>
                 <a href='/post_detail/{{post.id}}'>More</a>
                 </article>
-        </div>
-        
+        </div>      
     {% endfor %}
+</main> {% endcomment %}
+   
+      
+            <section class="banner_main">
+               <div class="container">
+                  <div class="row d_flex">
+                     <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
+                        <div class="text-bg">
+                           <h1>Online<br> <span class="white1">Text Share</span></h1>
+                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                           <a href=' {% url "posts:signup" %} '>Start Heare</a>
+                        </div>
+                     </div>
+                     {% comment %} <div class="col-xl-4 col-lg-4 col-md-4 col-12-3">
+                        <div class="text-img">
+                           <figure><img src="{% static 'posts/images/box_img.png' %}" alt="#"/></figure>
+                        </div>
+                     </div> {% endcomment %}
+                  </div>
+               </div>
+            </section>
+         </div>
+      </header>
+      <!-- end banner -->
+      <!-- blog_main -->
+      <div class="blog_main">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>User Posts</h2>
+                     <span>In this part,you can see the post that you uploaded</span>
+                  </div>
+               </div>
+            </div>
+            <!-- fist section -->
 
-</main>
+            <!-- ############ -->
+            <div class='card-container'>
+               {% for post in posts_list %}
+                  
+                     <div class='card'>
+                        <div class='card-content'>
+                           {% comment %} <article> {% endcomment %}
+                              <h3>{{post.title}}</h3>
+                              <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                              <h4>Time Posted : {{post.date_posted}}</h4>
+                              <p>{{post.content|truncatewords:25}}</p>
+                              <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a>
+                           {% comment %} </article> {% endcomment %}
+                        </div>
+                     </div>
+                  
+               {% endfor %}
+            </div>
+            
+    <!-- end fist section -->
+         </div>
+      </div>
+      <!-- end blog_main -->
+    
 {% endblock content %}

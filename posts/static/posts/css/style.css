@@ -329,8 +329,11 @@ button {
      line-height: 40px;
 }
 
-.banner_main {
+.banner_main_home {
      padding: 90px 0 190px 0;
+}
+.banner_main {
+     padding: 20px 0 50px 0;
 }
 
 .text-bg {
