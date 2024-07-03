@@ -13,7 +13,7 @@ class Post(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     
     class Meta:
-        ordering = ['date_posted']
+        ordering = ['-date_posted']
 
         
     def __str__(self):

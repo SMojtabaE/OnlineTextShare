@@ -1,5 +1,3 @@
-
-from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import TemplateView,CreateView,ListView,DetailView,UpdateView,DeleteView
 from .models import Post
@@ -21,7 +19,7 @@ class PostCreateview(LoginRequiredMixin,CreateView):           # templat = > pos
     model = Post
     fields = ['title','content','is_publick']
 
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy('posts:list_posts')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -55,7 +53,7 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):           # template = > po
     model = Post
     fields = ['title', 'content','is_publick']
     # success_url = reverse_lazy('posts:list_posts') 
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy('posts:list_posts')
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):           # template = > post_confirm_delete.html
     model = Post
