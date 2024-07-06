@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView,CreateView,ListView,DetailView,UpdateView,DeleteView
+from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView
 from .models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -57,6 +56,7 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):           # template = > po
     fields = ['title', 'content','is_publick']
     # success_url = reverse_lazy('posts:list_posts') 
     success_url = reverse_lazy('posts:list_posts')
+    
 
 class PostDeleteView(LoginRequiredMixin,DeleteView):           # template = > post_confirm_delete.html
     model = Post

@@ -44,27 +44,32 @@
                     </div>
             </div>
         </main> {% endcomment %}
-        <div class='card-container'>
-                  <div class='card-detail'>
-                     <div class='card-content'>
-                        <article>
-                           <h3>{{post.title}}</h3>
-                           <hr style="background:#046c58;">
-                           <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
-                           <hr style="background:#046c58;">
-                           <h4>Time Posted : {{post.date_posted}}</h4>
-                           <hr style="background:#046c58;">
-                           <p>{{post.content}}</p>
-                           
-                           {% comment %} <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a> {% endcomment %}
-                        </article>
+        {% if post.user != user %}      {% comment %} checks if the user is the same one that made the post {% endcomment %}
+    
+            <p class="error"> You dont have permission for this page</p>
+         {% else %} 
+            <div class='card-container'>
+                     <div class='card-detail'>
+                        <div class='card-content'>
+                           <article>
+                              <h3>{{post.title}}</h3>
+                              <hr style="background:#046c58;">
+                              <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                              <hr style="background:#046c58;">
+                              <h4>Time Posted : {{post.date_posted}}</h4>
+                              <hr style="background:#046c58;">
+                              <p>{{post.content}}</p>
+                              
+                              {% comment %} <a href='/post_detail/{{post.id}}' class='post-btn'>Read More</a> {% endcomment %}
+                           </article>
                         <div class='post-btns'>
-                            <a  href='/update_post/{{post.id}}'><button class='post-btn'>Update</button></a>
-                            <a  href='/delete_post/{{post.id}}'><button class='post-btn-delete'>Delete</button></a>
+                           <a  href='/update_post/{{post.id}}'><button class='post-btn'>Update</button></a>
+                           <a  href='/delete_post/{{post.id}}'><button class='post-btn-delete'>Delete</button></a>
                         </div>
                      </div>
                   </div>
-         </div>
+            </div>
+         {% endif %}
     </div>
 </div>
 {% endblock content %}

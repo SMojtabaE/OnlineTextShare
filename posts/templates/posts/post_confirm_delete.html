@@ -2,6 +2,7 @@
 
 
 {% block content %}
+</header>
     {% comment %} <div class='post-delete-main'>
         <div class='post'>
             <h3>Are you sure you want to Delete this Post?</h3>
@@ -29,28 +30,35 @@
      </section>
     </div> 
     </header> {% endcomment %}
-</header>
-    <div class="blog_main">
-        <div class="container">
-            <div class='card-container'>
-                      <div class='card-detail'>
-                         <div class='card-content'>
-                            <form method='POST'>
-                                {% csrf_token %}
-                               <h3>Are you sure you want to delete this post?</h3>
-                               <hr style="background:#046c58;">
-                               <h4>Title : <b><i>{{post.title}}</i></b></h4>  
-                            
-                                <div class='post-btns'>
-                                    <input class='post-btn-delete' type='submit' value='delete'>
-                                    
-                                </div>
-                            </form>
-                         </div>
-                      </div>
-             </div>
-        </div>
+{% if form.user != user %}      {% comment %} checks if the user is the same one that made the post {% endcomment %}
+    
+        <p class="error"> You dont have permission for this page</p>
+{% else %} 
+
+<div class="blog_main">
+    <div class="container">
+        <div class='card-container'>
+                  <div class='card-detail'>
+                     <div class='card-content'>
+                        <form method='POST'>
+                            {% csrf_token %}
+                           <h3>Are you sure you want to delete this post?</h3>
+                           <hr style="background:#046c58;">
+                           <h4>Title : <b><i>{{post.title}}</i></b></h4>  
+                        
+                            <div class='post-btns'>
+                                <input class='post-btn-delete' type='submit' value='delete'>
+                                
+                            </div>
+                        </form>
+                     </div>
+                  </div>
+         </div>
     </div>
+</div>
+{% endif %} 
+
+
 
 
 {% endblock content %}
