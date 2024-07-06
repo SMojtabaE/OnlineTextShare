@@ -9,15 +9,11 @@
                      <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
                         <div class="text-bg">
                            <h1>Online<br> <span class="white1">Text Share</span></h1>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                           <p>Hi,in Online Text Share,you can share your text and links to 
+                              access it anywhere,on your phone or desktop.you can easily share it for yourself. </p>
                            <a href=' {% url "posts:signup" %} '>Start Heare</a>
                         </div>
                      </div>
-                     {% comment %} <div class="col-xl-4 col-lg-4 col-md-4 col-12-3">
-                        <div class="text-img">
-                           <figure><img src="{% static 'posts/images/box_img.png' %}" alt="#"/></figure>
-                        </div>
-                     </div> {% endcomment %}
                   </div>
                </div>
             </section>
@@ -60,87 +56,5 @@
          </div>
       </div>
       <!-- end blog_main -->
-    
-      <!-- Testimonial -->
-      <div class="section">
-        
-            <div id="" class="Testimonial">
-                <div class="container">
-               <div class="row">
-                  <div class="col-md-6 offset-md-3">
-                     <div class="titlepage">
-                        <h2>Testimonial</h2>
-                     </div>
-                  </div>
-               </div>
-               <div class="row d_flex">
-                  <div class="col-md-3">
-                     <div class="Testimonial_box">
-                        <i><img src="{% static 'posts/images/plan1.png' %}" alt="#"/></i>
-                     </div>
-                  </div>
-                  <div class="col-md-9">
-                     <div class="Testimonial_box">
-                        <h4>will smithe</h4>
-                        <p>Tof Lorem Ipsum, you need to be There are many variations of 
-                              passages of Lorem Ipsum available, but the majority have suffered
-                                 alteration in some form, by injected humour, or randomised words 
-                                  which don't look even slightly believable. If you are going to use a pass
-                        <br>
-                        age of Lorem Ipsum, you need to be
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-     
-      <!-- end Testimonial -->
-      <!-- contact -->
-      <div id="contact" class="contact">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Contact us</h2>
-                     <span>There are many variations of passages of Lorem Ipsum available, but the </span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 ">
-                  <form class="main_form " method='POST'>
-                     {% csrf_token %}
-
-                     <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="form_contril" placeholder="Name " type="text" name="Name ">
-                           {% for err in form.name.errors %}
-                              <small class='text-danger'>{{err}}</small>
-                           {% endfor %}
-                        </div>
-                        <div class="col-md-12">
-                           <input class="form_contril" placeholder="Phone Number" type="text" name=" Phone Number">
-                        </div>
-                        <div class="col-md-12">
-                           <input class="form_contril" placeholder="Email" type="text" name="Email">
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                        </div>
-                        <div class="col-sm-12">
-                           <button class="send_btn">Send</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end contact -->
-
 
       {% endblock content %}
