@@ -44,9 +44,12 @@ class UserPostListView(LoginRequiredMixin,ListView):
         
         return Post.objects.filter(user=self.request.user)         # if regular user,only show the users posts
 
-class PostDetailview(DetailView):           # tempalte = > post_detail.html
+class PostDetailview(LoginRequiredMixin,DetailView):           # tempalte = > post_detail.html
     model = Post
-    ordering = ['date_posted']
+
+class PublicPostDetailview(DetailView):           # tempalte = > public_post_detail.html
+    model = Post
+    template_name = 'posts/public_post_detail.html'
 
 
 class PostUpdateView(LoginRequiredMixin,UpdateView):           # template = > post_form.html    build befor
@@ -59,7 +62,6 @@ class PostDeleteView(LoginRequiredMixin,DeleteView):           # template = > po
     model = Post
     # success_url = reverse_lazy('posts:list_posts')
     success_url = reverse_lazy('posts:home')
-
 
 class SignUpCreateView(CreateView):
     form_class = UserCreationForm

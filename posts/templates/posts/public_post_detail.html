@@ -1,0 +1,52 @@
+{% extends "posts/base.html" %}
+
+
+{% block content %}
+<section class="banner_main">
+    <div class="container">
+       <div class="row d_flex">
+          <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
+             <div class="text-bg">
+                <h1>Online<br> <span class="white1">Text Share</span></h1>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
+                <a href=' {% url "posts:signup" %} '>Start Heare</a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </section>
+</div> 
+</header>
+<div class="blog_main">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="titlepage">
+                <h2>Public Posts</h2>
+                <span>In this part,you can see the public post that people uploaded</span>
+             </div>
+          </div>
+       </div>
+        <div class='card-container'>
+                  <div class='card-detail'>
+                     <div class='card-content'>
+                        <article>
+                           <h3>{{post.title}}</h3>
+                           <hr style="background:#046c58;">
+                           <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                           <hr style="background:#046c58;">
+                           <h4>Time Posted : {{post.date_posted}}</h4>
+                           <hr style="background:#046c58;">
+                           <p>{{post.content}}</p>
+                        
+                        </article>
+                        <div class='post-btns'>
+                            <a  href='{% url "posts:home" %}'><button class='post-btn'>Return</button></a>
+                            
+                        </div>
+                     </div>
+                  </div>
+         </div>
+    </div>
+</div>
+{% endblock content %}
