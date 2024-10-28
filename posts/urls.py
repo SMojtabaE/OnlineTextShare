@@ -4,12 +4,6 @@ from .views import (PostCreateview,HomePostsListView,
                     SignUpCreateView,UserPostListView,PublicPostDetailview)
 app_name = 'posts'
 
-# mysuperadmin = {'username' : 'admin',
-#                 'password' : 'sme123',
-#                 }
-
-
-
 urlpatterns = [
     path('',HomePostsListView.as_view(),name='home'),
     path('create_post/',PostCreateview.as_view(),name='create_post'),
