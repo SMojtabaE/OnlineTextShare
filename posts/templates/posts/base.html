@@ -63,7 +63,7 @@
     <!-- header -->
     <header>
         <!-- header inner -->
-        <div  {% if request.path == "/" %}
+        <div  {% if request.path == "/" or request.path == "/accounts/logout/" %}
                   class="head_top"
                {% else %}
                   class="head_top1"
