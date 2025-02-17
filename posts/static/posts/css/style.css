@@ -316,6 +316,14 @@ button {
 }
 
 
+
+.head_top1 {
+     background: url(../images/bottom.png);
+     /* background-size: 100% 100%; */
+     background-repeat: no-repeat;
+     background-position: top;
+}
+
 .header {
      width: 100%;
      background: transparent;

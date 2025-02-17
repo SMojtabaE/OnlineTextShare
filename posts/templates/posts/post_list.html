@@ -17,7 +17,7 @@
     {% endfor %}
 </main> {% endcomment %}
    
-      
+{% comment %}       
             <section class="banner_main">
                <div class="container">
                   <div class="row d_flex">
@@ -32,19 +32,22 @@
                         <div class="text-img">
                            <figure><img src="{% static 'posts/images/box_img.png' %}" alt="#"/></figure>
                         </div>
-                     </div> {% endcomment %}
+                     </div> 
                   </div>
                </div>
             </section>
          </div>
-      </header>
+      </header> {% endcomment %}
       <!-- end banner -->
       <!-- blog_main -->
+
+      
       <div class="blog_main">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
+                     
                      <h2>User Posts</h2>
                      <span>In this part,you can see the post that you uploaded</span>
                   </div>
@@ -72,8 +75,28 @@
             </div>
             
     <!-- end fist section -->
+    <div class="pagination">
+         
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
+
+      
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+  
+</div>
          </div>
+
+
+         
       </div>
       <!-- end blog_main -->
-    
+      
 {% endblock content %}
