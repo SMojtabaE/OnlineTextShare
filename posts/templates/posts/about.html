@@ -1,0 +1,64 @@
+{% extends "posts/base.html" %}
+{% load static %}
+{% block content %}
+   
+{% comment %}       
+            <section class="banner_main_home">
+               <div class="container">
+                  <div class="row d_flex">
+                     <div class=" col-xl-8 col-lg-8 col-md-8 col-12-9">
+                        <div class="text-bg">
+                           <h1>Online<br> <span class="white1">Text Share</span></h1>
+                           <p>Hi,in Online Text Share,you can share your text and links to 
+                              access it anywhere,on your phone or desktop.you can easily share it for yourself. </p>
+                           <a href=' {% url "posts:signup" %} '>Start Heare</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div> {% endcomment %}
+      </header>
+      <!-- end banner -->
+      <!-- blog_main -->
+      <div class="blog_main">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <div class="about">
+                        <h2>About me</h2>
+                        <span>Hi,my name is Seyed Mojtaba Esmaili and I'm learning django.
+                              
+                        </span>
+                     </div>   
+                  </div>
+               </div>
+            </div>
+            <!-- fist section -->
+
+            <!-- ############ -->
+            <div class='card-container'>
+               {% for post in posts_list %}
+                  
+                     <div class='card'>
+                        <div class='card-content'>
+                           {% comment %} <article> {% endcomment %}
+                              <h3>{{post.title}}</h3>
+                              <h4>Writer : <b><i>{{post.user.username}}</i></b></h4>
+                              <h4>Time Posted : {{post.date_posted}}</h4>
+                              <p>{{post.content|truncatewords:25}}</p>
+                              <a href='/public_post_detail/{{post.id}}' class='post-btn'>Read More</a>
+                           {% comment %} </article> {% endcomment %}
+                        </div>
+                     </div>
+                  
+               {% endfor %}
+            </div>
+            
+    <!-- end fist section -->
+         </div>
+      </div>
+      <!-- end blog_main -->
+
+      {% endblock content %}

@@ -1,4 +1,4 @@
-from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView
+from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView,TemplateView
 from .models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -39,7 +39,7 @@ class UserPostListView(LoginRequiredMixin,ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        if self.request.user.is_staff:           # check if superuser is logedtn, show all posts
+        if self.request.user.is_staff:           # check if superuser is logedin, show all posts
             return Post.objects.all()
         
         return Post.objects.filter(user=self.request.user)         # if regular user,only show the users posts
@@ -69,3 +69,7 @@ class SignUpCreateView(CreateView):
     success_url = reverse_lazy('login')
 
     template_name = 'registration/signup.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'posts/about.html'

@@ -315,7 +315,10 @@ button {
      background-position: top;
 }
 
-
+.about {
+     padding: 25px 0 0px 0;
+     font-size: 20px;
+}
 
 .head_top1 {
      background: url(../images/bottom.png);
@@ -665,6 +668,11 @@ ul.padding_left2 li img {padding: 0px 10px 0px 30px;}
      line-height: 28px;
 }
 
+.titlepage .about span {
+     font-size: 20px;
+     line-height: 25px;
+     
+}
 .contact {
      padding-top: 90px;
 }
