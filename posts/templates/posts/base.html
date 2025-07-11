@@ -72,9 +72,13 @@
                                     <a class="nav-link" href=' {% url "posts:list_posts" %} '>List</a>
                                  </li>
                                 {% if user.is_authenticated %}
-                                   {% comment %} <a href=' {% url "logout" %} '>Logout from {{user.get_username}}</a> {% endcomment %}
+                                   
                                    <li class="nav-item">
-                                       <a class="nav-link" href=' {% url "logout" %} '>Logout</a>
+                                       <form method="post" action="{% url 'logout' %}">
+                                          {% csrf_token %}
+                                          <a class="nav-link" href=' {% url "logout" %} '><button type="submit" >logout</button></a>
+                                       {% comment %} <a class="nav-link" href=' {% url "logout" %} '>Logout</a> {% endcomment %}
+                                    </form>
                                     </li>
                                 {% else %}
                                     <li class="nav-item">
